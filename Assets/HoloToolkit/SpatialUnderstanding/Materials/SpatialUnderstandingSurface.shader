@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 //
 // Copyright (C) Microsoft. All rights reserved.
 //
@@ -45,7 +47,7 @@ Shader "HoloToolkit/SpatialUnderstanding/Understanding"
            {
                v2g o;
                UNITY_SETUP_INSTANCE_ID(v);
-               o.viewPos = mul(UNITY_MATRIX_MVP, v.vertex);
+               o.viewPos = UnityObjectToClipPos(v.vertex);
                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
                return o;
            }

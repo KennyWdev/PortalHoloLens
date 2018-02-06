@@ -3,7 +3,7 @@
 
 using UnityEngine;
 using System.Collections;
-using UnityEngine.VR.WSA.Input;
+
 using UnityEngine.Windows.Speech;
 using HoloToolkit.Unity;
 using System;
@@ -11,19 +11,19 @@ using HoloToolkit.Unity.InputModule;
 
 public class TextToSpeechManagerTest : MonoBehaviour
 {
-    private GestureRecognizer gestureRecognizer;
+    private UnityEngine.XR.WSA.Input.GestureRecognizer gestureRecognizer;
     public TextToSpeechManager textToSpeechManager;
 
     // Use this for initialization
     void Start ()
     {
         // Set up a GestureRecognizer to detect Select gestures.
-        gestureRecognizer = new GestureRecognizer();
+        gestureRecognizer = new UnityEngine.XR.WSA.Input.GestureRecognizer();
         gestureRecognizer.TappedEvent += GestureRecognizer_TappedEvent;
         gestureRecognizer.StartCapturingGestures();
     }
 
-    private void GestureRecognizer_TappedEvent(InteractionSourceKind source, int tapCount, Ray headRay)
+    private void GestureRecognizer_TappedEvent(UnityEngine.XR.WSA.Input.InteractionSourceKind source, int tapCount, Ray headRay)
     {
         GazeManager gm = GazeManager.Instance;
         if (gm.IsGazingAtObject)

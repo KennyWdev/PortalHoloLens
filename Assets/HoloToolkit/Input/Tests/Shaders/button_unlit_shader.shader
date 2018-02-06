@@ -1,4 +1,6 @@
-﻿Shader "Custom/Unlit_glass_button"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/Unlit_glass_button"
 {
 	Properties
 	{
@@ -63,7 +65,7 @@
 			{
 				v2f o;
 
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 				o.uv.xy = v.texcoord;
 				o.localNormal = normalize(v.normal);
 				o.viewDir = normalize(ObjSpaceViewDir(v.vertex));

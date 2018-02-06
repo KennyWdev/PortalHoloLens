@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 ///
 /// Basic wireframe shader that can be used for rendering spatial mapping meshes.
 ///
@@ -44,7 +46,7 @@ Shader "HoloToolkit/SpatialUnderstanding/Mapping"
             {
                 UNITY_SETUP_INSTANCE_ID(v);
                 v2g o;
-                o.viewPos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.viewPos = UnityObjectToClipPos(v.vertex);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
                 return o;
             }

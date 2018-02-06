@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.VR.WSA;
+
 using HoloToolkit.Unity.SpatialMapping;
 
 namespace HoloToolkit.Unity
@@ -44,11 +44,11 @@ namespace HoloToolkit.Unity
         /// <param name="changeType">Added | Removed | Updated</param>
         /// <param name="bounds">The world volume the mesh is in.</param>
         /// <param name="updateTime">When the mesh was updated.</param>
-        private void MappingObserver_SurfaceChanged(SurfaceId surfaceId, SurfaceChange changeType, Bounds bounds, DateTime updateTime)
+        private void MappingObserver_SurfaceChanged(UnityEngine.XR.WSA.SurfaceId surfaceId, UnityEngine.XR.WSA.SurfaceChange changeType, Bounds bounds, DateTime updateTime)
         {
             // We only need to worry about removing meshes from our list.  Adding and updating is 
             // done when the mesh data is actually ready.
-            if (changeType == SurfaceChange.Removed)
+            if (changeType == UnityEngine.XR.WSA.SurfaceChange.Removed)
             {
                 int meshIndex = FindMeshIndexInInputMeshList(surfaceId.handle);
                 if(meshIndex >= 0)
@@ -64,7 +64,7 @@ namespace HoloToolkit.Unity
         /// <param name="bakedData">The data describing the surface.</param>
         /// <param name="outputWritten">If the data was successfully updated.</param>
         /// <param name="elapsedBakeTimeSeconds">How long it took to update.</param>
-        private void MappingObserver_DataReady(SurfaceData bakedData, bool outputWritten, float elapsedBakeTimeSeconds)
+        private void MappingObserver_DataReady(UnityEngine.XR.WSA.SurfaceData bakedData, bool outputWritten, float elapsedBakeTimeSeconds)
         {
             if (!outputWritten)
                 return;
@@ -93,9 +93,9 @@ namespace HoloToolkit.Unity
         /// <param name="surfaceObjects">The list of surfaceObjects</param>
         /// <param name="meshDataIndex">Index into the locally stored mesh data list</param>
         private void AddOrUpdateMeshInList(
-            SurfaceData bakedData)
+            UnityEngine.XR.WSA.SurfaceData bakedData)
         {
-            SurfaceId surfaceId = bakedData.id;
+            UnityEngine.XR.WSA.SurfaceId surfaceId = bakedData.id;
             MeshFilter meshFilter = bakedData.outputMesh;
             int meshDataIndex = FindMeshIndexInInputMeshList(surfaceId.handle);
             SpatialUnderstandingDll.MeshData meshData = new SpatialUnderstandingDll.MeshData();

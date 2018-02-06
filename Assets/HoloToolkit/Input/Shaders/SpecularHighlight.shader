@@ -1,4 +1,6 @@
-﻿//
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+//
 // Copyright (C) Microsoft. All rights reserved. 
 //
 
@@ -92,7 +94,7 @@ Shader "HoloToolkit/SpecularHighlight"
             v2f vert(appdata_t v)
             {
                 v2f o;
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
                 o.uv = v.texcoord;
 
                 //Setup vectors for light probe contribution, w = 1.
