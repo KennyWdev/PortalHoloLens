@@ -1,6 +1,6 @@
 Portal HoloLens Demo (Fan Project)
 
-
+<strong>The project is working now with the last version of Unity.</strong>
 
 All 3D models and sound effects belong to Valve Corporation.
 
