@@ -1,6 +1,6 @@
-Portal HoloLens Demo (Fan Project)
+# Portal HoloLens Demo (Fan Project)
 
-<strong>The project is working now with the last version of Unity.</strong>
+The project is working now with the last version of Unity.
 
 All 3D models and sound effects belong to Valve Corporation.
 
@@ -8,14 +8,13 @@ All 3D models and sound effects belong to Valve Corporation.
 
 
 
-Instructions:
+# Instructions:
 
 Tap to place the companion cube and look at the ground to scan the floor. 
 The cube should automatically fall when the floor is mapped underneath it. 
 Simply tap the walls or other surfaces to place portals. 
 
-Editor Controls:
-
+# Editor Controls:
 
 - [Space] to shoot portal
 
